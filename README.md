@@ -4,6 +4,8 @@ A wrapper around `whois` that returns a Promise with either raw whois data or an
 
 * Acceptable values are `domain.com` or an ip address `8.8.8.8`.
 
+Try it now @ [Runkit: whois-promise](https://npm.runkit.com/whois-promise).
+
 ## Demo
 
 ### Promise
