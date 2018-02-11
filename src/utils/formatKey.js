@@ -23,7 +23,7 @@ module.exports = (key, isIpWhois = false) => {
   if (key === 'CIDR') {
     return key.toLowerCase();
   } else if (key === 'originAS') {
-    return key.replace('AS', 'As');
+    return key.split('AS').join('As');
   } else if (key.includes('NOC')) {
     return lowercaseFirst(key.split('NOC').join('Noc'));
   }
