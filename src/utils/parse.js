@@ -1,7 +1,6 @@
 const validator = require('validator');
 const formatKey = require('./formatKey');
 
-const THREE_SPACE_START = /^\s{3}.*$/i;
 const MAYBE_WHOIS_FIELD = /^([a-zA-Z])([a-zA-Z\/\s])+:.*$/i;
 
 module.exports = async (whois, host) => {
