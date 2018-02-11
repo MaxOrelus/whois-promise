@@ -22,6 +22,8 @@ module.exports = (key, isIpWhois = false) => {
   // edge cases for ARIN whois
   if (key === 'CIDR') {
     return key.toLowerCase();
+  } else if (key === 'originAS') {
+    return key.replace('AS', 'As');
   } else if (key.includes('NOC')) {
     return lowercaseFirst(key.split('NOC').join('Noc'));
   }
