@@ -2,7 +2,7 @@
 
 A wrapper around `whois` that returns a Promise with either raw whois data or an object.
 
-You can use either `mozilla.org` or `63.245.215.20`.
+* Acceptable values are `domain.com` or an ip address `8.8.8.8`.
 
 ## Demo
 
