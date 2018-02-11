@@ -12,6 +12,9 @@ module.exports = async (whois, host) => {
     whoisArr = whois.split('\n').map(str => str.trim());
   } else if (isFQDN) {
     whoisArr = whois.split('\r\n').map(str => str.trim());
+  } else {
+    // we don't handle just hostname lookups
+    return {};
   }
 
   let tmpO = whoisArr
@@ -29,10 +32,10 @@ module.exports = async (whois, host) => {
     .reduce((acc, innerArr) => {
       let [key, value] = innerArr;
 
-      if (isFQDN) {
-        key = formatKey(key);
-      } else if (isIP) {
+      if (isIP) {
         key = formatKey(key, true);
+      } else if (isFQDN) {
+        key = formatKey(key);
       }
 
       // duplicate keys -- append values all together

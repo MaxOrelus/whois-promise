@@ -7,9 +7,7 @@ exports.raw = async host => {
     return new Error('Host value is not a string.');
   }
 
-  const whois = await request(host);
-
-  return errorHandler(whois);
+  return await request(host);
 };
 
 exports.json = async host => {
@@ -17,7 +15,7 @@ exports.json = async host => {
     return new Error('Host value is not a string.');
   }
 
-  const whois = errorHandler(await request(host), true);
+  const whois = errorHandler(await request(host));
 
   if (typeof whois !== 'string') {
     return whois;
