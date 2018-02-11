@@ -9,5 +9,7 @@ module.exports = async host => {
         resolve(response);
       }
     });
-  }).catch(error => error);
+  }).catch(error => {
+    return `Whois request for ${host} was refused.`;
+  });
 };
