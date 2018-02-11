@@ -1,0 +1,27 @@
+{
+  "name": "whois-promise",
+  "version": "1.0.0",
+  "description": "A WHOIS promise client for NodeJS ",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxorelus/whois-promise"
+  },
+  "author": "Max Orelus <me@maxorelus.com>",
+  "license": "MIT",
+  "keywords": [
+    "whois",
+    "whois promise",
+    "whois json",
+    "whois async"
+  ],
+  "bugs": {
+    "url": "https://github.com/maxorelus/whois-promise/issues"
+  },
+  "homepage": "https://github.com/maxorelus/whois-promise#readme",
+  "dependencies": {
+    "validator": "^9.4.0",
+    "whois": "^2.5.9"
+  },
+  "devDependencies": {}
+}
