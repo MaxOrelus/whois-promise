@@ -3,8 +3,19 @@
 A wrapper around `whois` that returns a Promise with either raw whois data or an object.
 
 * Acceptable values are `domain.com` or an ip address `8.8.8.8`.
+* JSON output follows camelCase standard.
 
-Try it now @ [Runkit: whois-promise](https://npm.runkit.com/whois-promise).
+## Playground
+
+* Try it now right in your browser @ [Runkit: whois-promise](https://npm.runkit.com/whois-promise).
+
+## Installing
+
+Using npm:
+
+```sh
+npm install --save whois-promise
+```
 
 ## Demo
 
@@ -14,14 +25,10 @@ Try it now @ [Runkit: whois-promise](https://npm.runkit.com/whois-promise).
 const whois = require('whois-promise');
 
 // raw output
-whois.raw('mozilla.org').then(response => {
-  console.log(response);
-});
+whois.raw('mozilla.org').then(response => console.log(response));
 
 // json object output
-whois.json('mozilla.org').then(response => {
-  console.log(response);
-});
+whois.json('mozilla.org').then(response => console.log(response));
 ```
 
 ### Async/Await
@@ -31,16 +38,12 @@ const whois = require('whois-promise');
 
 // raw output
 (async () => {
-  const data = await whois.raw('mozilla.org');
-
-  console.log(data);
+  console.log(await whois.raw('mozilla.org'));
 })();
 
 // json object output
 (async () => {
-  const data = await whois.json('mozilla.org');
-
-  console.log(data);
+  console.log(await whois.json('mozilla.org'));
 })();
 ```
 
@@ -117,64 +120,66 @@ For more information on Whois status codes, please visit https://icann.org/epp
 Access to Public Interest Registry WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the Public Interest Registry registry database. The data in this record is provided by Public Interest Registry for informational purposes only, and Public Interest Registry does not guarantee its accuracy. This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to: (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Afilias except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. Public Interest Registry reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.
 ```
 
-### whois.json()
+### whois.json(host)
 
-```
+```json
 {
-    "domainName": "MOZILLA.ORG",
-    "registryDomainId": "D1409563-LROR",
-    "registrarWhoisServer": "whois.markmonitor.com",
-    "registrarUrl": "http://www.markmonitor.com",
-    "updatedDate": "2016-12-22T10:04:31Z",
-    "creationDate": "1998-01-24T05:00:00Z",
-    "registryExpiryDate": "2019-01-23T05:00:00Z",
-    "registrar": "MarkMonitor Inc.",
-    "registrarIanaId": "292",
-    "registrarAbuseContactEmail": "abusecomplaints@markmonitor.com",
-    "registrarAbuseContactPhone": "+1.2083895740",
-    "domainStatus": "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited clientTransferProhibited https://icann.org/epp#clientTransferProhibited clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
-    "registryRegistrantId": "C49620406-LROR",
-    "registrantName": "DNS Admin",
-    "registrantOrganization": "Mozilla Corporation",
-    "registrantStreet": "331 E. Evelyn Ave",
-    "registrantCity": "Mountain View",
-    "registrantStateProvince": "CA",
-    "registrantPostalCode": "94041",
-    "registrantCountry": "US",
-    "registrantPhone": "+1.6509030800",
-    "registrantEmail": "hostmaster@mozilla.com",
-    "registryAdminId": "C49620406-LROR",
-    "adminName": "DNS Admin",
-    "adminOrganization": "Mozilla Corporation",
-    "adminStreet": "331 E. Evelyn Ave",
-    "adminCity": "Mountain View",
-    "adminStateProvince": "CA",
-    "adminPostalCode": "94041",
-    "adminCountry": "US",
-    "adminPhone": "+1.6509030800",
-    "adminEmail": "hostmaster@mozilla.com",
-    "registryTechId": "C49620406-LROR",
-    "techName": "DNS Admin",
-    "techOrganization": "Mozilla Corporation",
-    "techStreet": "331 E. Evelyn Ave",
-    "techCity": "Mountain View",
-    "techStateProvince": "CA",
-    "techPostalCode": "94041",
-    "techCountry": "US",
-    "techPhone": "+1.6509030800",
-    "techEmail": "hostmaster@mozilla.com",
-    "nameServer": [
-        "NS5-65.AKAM.NET",
-        "NS7-66.AKAM.NET",
-        "NS4-64.AKAM.NET",
-        "NS1-240.AKAM.NET"
-    ]
+  "domainName": "MOZILLA.ORG",
+  "registryDomainId": "D1409563-LROR",
+  "registrarWhoisServer": "whois.markmonitor.com",
+  "registrarUrl": "http://www.markmonitor.com",
+  "updatedDate": "2016-12-22T10:04:31Z",
+  "creationDate": "1998-01-24T05:00:00Z",
+  "registryExpiryDate": "2019-01-23T05:00:00Z",
+  "registrar": "MarkMonitor Inc.",
+  "registrarIanaId": "292",
+  "registrarAbuseContactEmail": "abusecomplaints@markmonitor.com",
+  "registrarAbuseContactPhone": "+1.2083895740",
+  "domainStatus":
+    "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited clientTransferProhibited https://icann.org/epp#clientTransferProhibited clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+  "registryRegistrantId": "C49620406-LROR",
+  "registrantName": "DNS Admin",
+  "registrantOrganization": "Mozilla Corporation",
+  "registrantStreet": "331 E. Evelyn Ave",
+  "registrantCity": "Mountain View",
+  "registrantStateProvince": "CA",
+  "registrantPostalCode": "94041",
+  "registrantCountry": "US",
+  "registrantPhone": "+1.6509030800",
+  "registrantEmail": "hostmaster@mozilla.com",
+  "registryAdminId": "C49620406-LROR",
+  "adminName": "DNS Admin",
+  "adminOrganization": "Mozilla Corporation",
+  "adminStreet": "331 E. Evelyn Ave",
+  "adminCity": "Mountain View",
+  "adminStateProvince": "CA",
+  "adminPostalCode": "94041",
+  "adminCountry": "US",
+  "adminPhone": "+1.6509030800",
+  "adminEmail": "hostmaster@mozilla.com",
+  "registryTechId": "C49620406-LROR",
+  "techName": "DNS Admin",
+  "techOrganization": "Mozilla Corporation",
+  "techStreet": "331 E. Evelyn Ave",
+  "techCity": "Mountain View",
+  "techStateProvince": "CA",
+  "techPostalCode": "94041",
+  "techCountry": "US",
+  "techPhone": "+1.6509030800",
+  "techEmail": "hostmaster@mozilla.com",
+  "nameServer": [
+    "NS5-65.AKAM.NET",
+    "NS7-66.AKAM.NET",
+    "NS4-64.AKAM.NET",
+    "NS1-240.AKAM.NET"
+  ],
+  "dnsSec": "signedDelegation"
 }
 ```
 
 ## Unsuccessful Response
 
-### whois.raw()
+### whois.raw(host)
 
 ```
 No match for domain "MOZDASDAILLA.COM".
@@ -232,8 +237,12 @@ Registrars.
 % This query was served by the RIPE Database Query Service version 1.90 (HEREFORD)
 ```
 
+```
+Whois request for HOST was refused.
+```
+
 ### whois.json()
 
-```
+```json
 {}
 ```
