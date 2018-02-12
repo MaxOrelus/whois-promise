@@ -52,8 +52,8 @@ module.exports = async (whois, host) => {
 
   /* EDGE CASES */
   // remove all keys after dnssec for domain whois
-  if (tmpO.dnssec) {
-    let keys = Object.keys(tmpO).slice(0, Object.keys(tmpO).indexOf('dnssec'));
+  if (tmpO.dnsSec) {
+    let keys = Object.keys(tmpO).slice(0, Object.keys(tmpO).indexOf('dnsSec') + 1);
 
     for (let key in tmpO) {
       if (!keys.includes(key)) {

@@ -3,6 +3,11 @@ const lowercaseFirst = require('./lowercaseFirst');
 
 module.exports = (key, isIpWhois = false) => {
   if (!isIpWhois) {
+    // edge case for ICANN whois
+    if (key === 'DNSSEC') {
+      return key.toLowerCase().replace('ss', 'sS');
+    }
+    
     return (
       key
         // remove slashes
