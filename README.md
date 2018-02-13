@@ -2,7 +2,7 @@
 
 A wrapper around `whois` that returns a Promise with either raw whois data or an object.
 
-* Acceptable values are `domain.com` or an ip address `8.8.8.8`.
+* Acceptable values are `domain.com` (domain) or `8.8.8.8` (ip address).
 * JSON output follows camelCase standard.
 
 ## Playground
@@ -49,7 +49,7 @@ const whois = require('whois-promise');
 
 ## Successful Response
 
-### whois.raw()
+### whois.raw(host)
 
 ```
 Domain Name: MOZILLA.ORG
@@ -241,7 +241,7 @@ Registrars.
 Whois request for HOST was refused.
 ```
 
-### whois.json()
+### whois.json(host)
 
 ```json
 {}
