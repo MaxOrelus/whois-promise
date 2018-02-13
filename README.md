@@ -135,8 +135,11 @@ Access to Public Interest Registry WHOIS information is provided to assist perso
   "registrarIanaId": "292",
   "registrarAbuseContactEmail": "abusecomplaints@markmonitor.com",
   "registrarAbuseContactPhone": "+1.2083895740",
-  "domainStatus":
-    "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited clientTransferProhibited https://icann.org/epp#clientTransferProhibited clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+  "domainStatus": [
+    "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+    "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+    "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+  ],
   "registryRegistrantId": "C49620406-LROR",
   "registrantName": "DNS Admin",
   "registrantOrganization": "Mozilla Corporation",

@@ -38,6 +38,13 @@ module.exports = async (whois, host) => {
         key = formatKey(key);
       }
 
+      // exception to the duplicate key rule below -- domainStatus provide array of values
+      if (key === 'domainStatus') {
+        acc[key] = acc[key] ? [...acc[key], value] : [value];
+        
+        return acc;
+      }
+
       // duplicate keys -- append values all together
       if (acc[key]) {
         acc[key] = [acc[key], value].join(' ');
@@ -53,7 +60,10 @@ module.exports = async (whois, host) => {
   /* EDGE CASES */
   // remove all keys after dnssec for domain whois
   if (tmpO.dnsSec) {
-    let keys = Object.keys(tmpO).slice(0, Object.keys(tmpO).indexOf('dnsSec') + 1);
+    let keys = Object.keys(tmpO).slice(
+      0,
+      Object.keys(tmpO).indexOf('dnsSec') + 1
+    );
 
     for (let key in tmpO) {
       if (!keys.includes(key)) {
