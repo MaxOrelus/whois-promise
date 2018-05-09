@@ -8,12 +8,9 @@ module.exports = async (whois, host) => {
   const isFQDN = validator.isFQDN(host);
 
   let whoisArr;
-  if (isIP) {
+  if (isIP || isFQDN) {
     whoisArr = whois.split('\n').map(str => str.trim());
-  } else if (isFQDN) {
-    whoisArr = whois.split('\r\n').map(str => str.trim());
   } else {
-    // we don't handle just hostname lookups
     return {};
   }
 
@@ -41,7 +38,7 @@ module.exports = async (whois, host) => {
       // exception to the duplicate key rule below -- domainStatus provide array of values
       if (key === 'domainStatus') {
         acc[key] = acc[key] ? [...acc[key], value] : [value];
-        
+
         return acc;
       }
 
