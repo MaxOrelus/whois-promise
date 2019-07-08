@@ -1,6 +1,6 @@
 {
   "name": "whois-promise",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A WHOIS promise client for NodeJS ",
   "main": "index.js",
   "repository": {
