@@ -7,6 +7,8 @@ module.exports = async host => {
         reject(error);
       } else if (response) {
         resolve(response);
+      } else {
+        reject(new Error('Empty Response'));
       }
     });
   }).catch(error => {
