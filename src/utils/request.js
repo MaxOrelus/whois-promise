@@ -1,8 +1,8 @@
 const whois = require('whois');
 
-module.exports = async host => {
+module.exports = async (host, options) => {
   return await new Promise((resolve, reject) => {
-    whois.lookup(host, (error, response) => {
+    whois.lookup(host, options, (error, response) => {
       if (error) {
         reject(error);
       } else if (response) {
